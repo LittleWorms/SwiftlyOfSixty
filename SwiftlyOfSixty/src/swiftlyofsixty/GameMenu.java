@@ -2,19 +2,19 @@ package swiftlyofsixty;
 
 import java.util.Scanner;
 import static swiftlyofsixty.SwiftlyOfSixty.clearScreen;
+import static swiftlyofsixty.SwiftlyOfSixty.printLogo;
 
 public class GameMenu {
     
-    private int player;
+    private static int noOfPlayer;
     private int mode;
     private int round;
-    public SwiftlyOfSixty game;
     //public Vocabulary word;
-    Vocabulary word = new Vocabulary();
+//    Vocabulary word = new Vocabulary();
     //SwiftlyOfSixty game2 = new SwiftlyOfSixty();
     
     public int getNoOfPlayer(){
-        return player;
+        return noOfPlayer;
     }
     public int getNoOfRound() {
         return round;
@@ -23,18 +23,16 @@ public class GameMenu {
     public void selectPlayer() {
         Scanner s1 = new Scanner(System.in);
         clearScreen();
-        System.out.println("■■■■■■■■■■■■■■■■■");
-        System.out.println("■  SWIFTLY OF SIXTY  ■");
-        System.out.println("■■■■■■■■■■■■■■■■■\n");
+        printLogo();
         System.out.println("Select Player(1,2): ");
         System.out.print(">> ");
         switch (s1.nextInt()) {
             case 1:
-                player = 1;
+                noOfPlayer = 1;
                 selectMode();
                 break;
             case 2:
-                player = 2;
+                noOfPlayer = 2;
                 selectMode();
                 break;
             default:
@@ -47,24 +45,22 @@ public class GameMenu {
         Scanner s2 = new Scanner(System.in);
         Vocabulary word = new Vocabulary();
         clearScreen();
-        System.out.println("■■■■■■■■■■■■■■■■■");
-        System.out.println("■  SWIFTLY OF SIXTY  ■");
-        System.out.println("■■■■■■■■■■■■■■■■■\n");
+        printLogo();
         System.out.println("Select Mode(1,2,3): ");
         System.out.println("\t1.easy, 2.normal, 3.hard");
         System.out.print(">> ");
             switch (s2.nextInt()) {
                 case 1:
                    
-                    word.selectedMode(1);
+                    word.modeWord(1);
                     break;
                 case 2:
                     
-                    word.selectedMode(2);
+                    word.modeWord(2);
                     break;
                 case 3:
                     
-                    word.selectedMode(3);
+                    word.modeWord(3);
                     break;
                 default:
                     selectMode();
