@@ -11,35 +11,15 @@ import jdk.nashorn.internal.parser.TokenType;
 public class SwiftlyOfSixty {
 
     private boolean gameStart; //true = เกมกำลังเล่นอยู่  false = เกมไม่ได้เล่นอยู่
-//    private int wordAmount = 30;
     private int score;
-    private int[] scorePlayTwo = {0,0};
+    private int[] scorePlayTwo = {0, 0};
     private String[] player = {"PLAYER 1", "PLAYER 2"};
     private int turnPlay = 0;
-//    private String[] selectedMode;
-    //private GameMenu game1 = new GameMenu();
-//    private String[] wordEasy = {"dog", "cat", "fat", "owl", "old","low", "bad", "jaw", "jam", "sit","bee", "key", "she", "him", "her","eye", "sex", "die", "six", "one","two", "cry", "pie", "pig", "bag","end", "home", "mos", "ant", "raw"};
-//    private String[] wordNormal = {"clean", "adult", "dance", "earth", "alarm","brain", "block", "fight", "group", "human","face", "japan", "laugh", "metal", "nurse", "ocean", "ball", "peter", "queen", "rabbit","shirt", "table", "onion", "unity", "voice","woman", "youth", "zebra", "young", "music"};
-//    private String[] wordHard= {"supreme", "advance", "keyboard", "cocacola", "assault","antibody", "benefit", "capital", "tranfer", "factory","gallery", "husband", "imagine", "justice", "crewmate","library", "machine", "nuclear", "organic", "lazyloxy","xxxtentacion", "linkingpark", "bohemian", "crystal", "summary","nestle", "trouble", "unusual", "whether", "imposter"};
-//    private GameMenu game;
-//    private Vocabulary word;
-
-    /*public static void main(String[] args) {
-        SwiftlyOfSixty s = new SwiftlyOfSixty();
-//s.timerTick();
-        //s.gameStart();
-    }*/
-    public SwiftlyOfSixty() {
-
-    }
 
     public boolean isGameStart() {
         return gameStart;
     }
 
-//    public String[] getSelectedMode(String[] mode){
-//        return mode;
-//    }
     public static void printLogo() {
         System.out.println("■■■■■■■■■■■■■■■■■");
         System.out.println("■  SWIFTLY OF SIXTY  ■");
@@ -47,29 +27,29 @@ public class SwiftlyOfSixty {
     }
 
     public void timerTick(int noOfPlayer) {
-                Timer myTimer;
-                myTimer = new Timer();
-                myTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        switch(noOfPlayer){
-                            case 1: gameEnd(); break;
-                            case 2: 
-                                if(turnPlay == 0){
-                                turnPlay+= 1;
-                                gamePlayTwo();
-                               
-                            }else{
-                                gameEnd();
-                                turnPlay=0;
-                            }
+        Timer myTimer;
+        myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                switch (noOfPlayer) {
+                    case 1:
+                        gameEnd();
+                        break;
+                    case 2:
+                        if (turnPlay == 0) {
+                            turnPlay += 1;
+                            gamePlayTwo();
+
+                        } else {
+                            gameEnd();
+                            turnPlay = 0;
                         }
-                        
-                    }
-                }, 10000);
+                }
 
+            }
+        }, 10000);
 
-          
     }
 
     public void startCount() {
@@ -86,19 +66,6 @@ public class SwiftlyOfSixty {
             }
         }
     }
-//    public void startCount() {
-//        int count=3;
-//        Timer myTimer;
-//        myTimer = new Timer();
-//        myTimer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                
-//                System.out.println("");
-//                count = count - 1;
-//            }
-//        }, 1000);
-//    }
 
     public void gameStart() {
         GameMenu game = new GameMenu();
@@ -110,36 +77,6 @@ public class SwiftlyOfSixty {
         }
     }
 
-//    public void selectedMode(int mode) {
-//        switch (mode) {
-//            case 1:
-//                selectedMode = wordEasy;
-//                gameStart();
-//                break;
-//            case 2:
-//                selectedMode = wordNormal;
-//                gameStart();
-//                break;
-//            case 3:
-//                selectedMode = wordHard;
-//                gameStart();
-//                break;
-//            case 4:
-//                selectedMode = wordEasy;
-//                game.selectRound();
-//                break;
-//            case 5:
-//                selectedMode = wordNormal;
-//                game.selectRound();
-//                break;
-//            case 6:
-//                selectedMode = wordHard;
-//                game.selectRound();
-//                break;
-//            default:
-//                game.selectMode();
-//        }
-//    }
     public void gameEnd() {
         gameStart = false;
         clearScreen();
@@ -168,13 +105,6 @@ public class SwiftlyOfSixty {
         }
     }
 
-    /*public static WordEasy getRandomWord(){
-        return WordEasy.class.getEnumConstants()[new   Random().nextInt(WordEasy.class.getEnumConstants().length)];
-    }*/
-//    public String randomWord(){
-//       int randomWord = new Random().nextInt(wordAmount);
-//       return selectedMode[randomWord];
-//    }
     public void gamePlayOne() {
         Scanner answer = new Scanner(System.in);
         startCount();
@@ -198,17 +128,14 @@ public class SwiftlyOfSixty {
     }
 
     public void gamePlayTwo() {
-//        gamePlayOne();
-//        scorePlayTwo[0] = score;
-//        System.out.println(scorePlayTwo);
         Scanner answer = new Scanner(System.in);
-            clearScreen();
-            printLogo();
-            System.out.println(player[turnPlay] + " : Ready?");
-            System.out.println("Press [Enter] to START!");
-            answer.nextLine();
-            startCount();
-            timerTick(2);
+        clearScreen();
+        printLogo();
+        System.out.println(player[turnPlay] + " : Ready?");
+        System.out.println("Press [Enter] to START!");
+        answer.nextLine();
+        startCount();
+        timerTick(2);
         if (turnPlay == 0) {
             while (turnPlay <= 0) {
                 clearScreen();
@@ -221,13 +148,13 @@ public class SwiftlyOfSixty {
                     if (isGameStart() == true) {
                         scorePlayTwo[turnPlay]++;
                     }
-                    
+
                 }
             }
             System.out.println("");
-            
-        }else if(turnPlay ==1){
-              while (turnPlay <= 1) {
+
+        } else if (turnPlay == 1) {
+            while (turnPlay <= 1) {
                 clearScreen();
                 printLogo();
                 Vocabulary word = new Vocabulary();
@@ -238,7 +165,7 @@ public class SwiftlyOfSixty {
                     if (isGameStart() == true) {
                         scorePlayTwo[turnPlay]++;
                     }
-                    
+
                 }
             }
             System.out.println("");
@@ -249,15 +176,7 @@ public class SwiftlyOfSixty {
     @Override
     public String toString() {
         return player[0] + " : Score = " + scorePlayTwo[0] + "\n" + player[1] + " : Score = " + scorePlayTwo[1];
-
     }
-//    public void switchTurnPlay(){
-//        switch(turnPlay){
-//            case 0: turnPlay = 1; break;
-//            case 1: turnPlay = 0; break;
-//            default: turnPlay = 0;
-//        }
-//    }
 
     public static void clearScreen() {
         for (int i = 0; i <= 30; i++) {
