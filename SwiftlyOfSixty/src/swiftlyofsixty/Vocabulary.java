@@ -9,7 +9,6 @@ public class Vocabulary {
     private String[] wordHard = {"supreme", "advance", "keyboard", "cocacola", "assault", "antibody", "benefit", "capital", "tranfer", "factory", "gallery", "husband", "imagine", "justice", "crewmate", "library", "machine", "nuclear", "organic", "lazyloxy", "xxxtentacion", "linkingpark", "bohemian", "crystal", "summary", "nestle", "trouble", "unusual", "whether", "imposter"};
     private int wordAmount = 30;
     private static String[] selectedMode;
-    public static Vocabulary c1;
 
     public void modeWord(int mode) {
         SwiftlyOfSixty swiftly = new SwiftlyOfSixty();
