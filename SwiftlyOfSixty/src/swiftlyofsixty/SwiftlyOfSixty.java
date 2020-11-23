@@ -48,7 +48,7 @@ public class SwiftlyOfSixty {
                 }
 
             }
-        }, 10000);
+        }, 60000);
 
     }
 
